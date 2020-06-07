@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { Platform } from 'react-native';
 
+import { MAPS_API_KEY } from 'react-native-dotenv';
+
 const Search = props => {
     const [searchFocused, setSearchFocused] = useState(false);
 
@@ -10,7 +12,7 @@ const Search = props => {
         placeholderTextColor="#333"
         onPress={props.onLocationSelected}
         query={{
-            key: 'AIzaSyAah4P19w1FbvcLu40p4xbgkgUKht-lw9U',
+            key: MAPS_API_KEY,
             language: 'pt',
         }}
         textInputProps={{

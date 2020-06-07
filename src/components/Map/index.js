@@ -13,6 +13,8 @@ import Details from '../Details';
 import markerImage from '../../assets/marker.png';
 import backImage from '../../assets/back.png';
 
+import { MAPS_API_KEY } from 'react-native-dotenv';
+
 import {
     Back,
     LocationBox,
@@ -28,7 +30,7 @@ const Map = () => {
     const [duration, setDuration] = useState(0);
     const [location, setLocation] = useState('');
 
-    Geocoder.init('AIzaSyAah4P19w1FbvcLu40p4xbgkgUKht-lw9U', { language: 'pt' });
+    Geocoder.init(MAPS_API_KEY, { language: 'pt' });
 
     const locationSelectedHandler = (data, { geometry }) => {
         const { location: { lat: latitude, lng: longitude } } = geometry;
@@ -37,8 +39,8 @@ const Map = () => {
             longitude,
             title: data.structured_formatting.main_text,
         });
-    };
 
+    };
     const backHandler = () => {
         setDestination(null);
     };
